@@ -1,10 +1,7 @@
 import attractions.Attraction;
-import attractions.RollerCoaster;
 import behaviours.IReviewed;
 import behaviours.ISecurity;
 import people.Visitor;
-import stalls.CandyflossStall;
-import stalls.ParkingSpot;
 import stalls.Stall;
 
 import java.util.ArrayList;
@@ -43,10 +40,18 @@ public class ThemePark {
         return mapOfReviews;
     }
 
-//    public ArrayList<IReviewed> getAllAllowedFor(Visitor visitor){
-//        for (IReviewed reviewed : this.reviewedAttractions){
-//            if ()
-//        }
-//    }
+    public ArrayList<IReviewed> getAllAllowedFor(Visitor visitor){
+        ArrayList<IReviewed> isAllowedAttractions = new ArrayList<>();
+        for (IReviewed reviewed : this.reviewedAttractions){
+            if (reviewed instanceof ISecurity) {
+                if (((ISecurity) reviewed).isAllowedTo(visitor)) {
+                    isAllowedAttractions.add(reviewed);
+                }
+            } else {
+                isAllowedAttractions.add(reviewed);
+            }
+        }
+        return isAllowedAttractions;
+    }
 
 }

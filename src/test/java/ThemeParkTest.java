@@ -1,3 +1,4 @@
+import attractions.Dodgems;
 import attractions.RollerCoaster;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,14 +13,16 @@ public class ThemeParkTest {
     ThemePark themePark;
     RollerCoaster rollerCoaster;
     TobaccoStall tobaccoStall;
+    Dodgems dodgems;
     Visitor visitor;
 
     @Before
     public void setUp(){
         rollerCoaster = new RollerCoaster("Blue Ridge", 10);
         themePark = new ThemePark();
+        dodgems = new Dodgems("Bash", 30);
         tobaccoStall = new TobaccoStall("Jacks Drum", "Jack Jarvis", ParkingSpot.B1, 50);
-        visitor = new Visitor(14, 1.2, 40.0);
+        visitor = new Visitor(17, 180, 40.0);
         themePark.addToReviewed(rollerCoaster);
         themePark.addToReviewed(tobaccoStall);
     }
@@ -40,5 +43,12 @@ public class ThemeParkTest {
     public void hasHashMapOfReviewed(){
         assertFalse(themePark.reviewMap().isEmpty());
     }
+
+    @Test
+    public void canGetAllowedAttractions(){
+        themePark.addToReviewed(dodgems);
+        assertEquals(2, themePark.getAllAllowedFor(visitor).size());
+    }
+
 
 }
