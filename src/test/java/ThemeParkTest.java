@@ -5,8 +5,7 @@ import people.Visitor;
 import stalls.ParkingSpot;
 import stalls.TobaccoStall;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ThemeParkTest {
 
@@ -35,6 +34,11 @@ public class ThemeParkTest {
         themePark.visit(visitor, rollerCoaster);
         assertEquals(1,rollerCoaster.getVisitCount());
         assertEquals(1,visitor.getVisitedAttractions().size());
+    }
+
+    @Test
+    public void hasHashMapOfReviewed(){
+        assertFalse(themePark.reviewMap().isEmpty());
     }
 
 }
