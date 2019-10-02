@@ -25,12 +25,12 @@ public class VisitorTest {
 
     @Test
     public void hasHeight() {
-        assertEquals(120.0, visitor.getHeight(), 0.1);
+        assertEquals(1.2, visitor.getHeight(), 0.01);
     }
 
     @Test
     public void hasMoney() {
-        assertEquals(40.0, visitor.getMoney(), 0.1);
+        assertEquals(40.0, visitor.getMoney(), 0.01);
     }
 
     @Test
