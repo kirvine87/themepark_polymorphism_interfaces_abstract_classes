@@ -14,7 +14,7 @@ public class VisitorTest {
 
     @Before
     public void before(){
-        visitor = new Visitor(14, 1.2, 40.0);
+        visitor = new Visitor(14, 120.0, 40.0);
         attraction = new RollerCoaster("Spin", 50);
     }
 
