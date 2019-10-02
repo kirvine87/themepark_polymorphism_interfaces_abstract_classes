@@ -40,6 +40,8 @@ public class ThemePark {
         return mapOfReviews;
     }
 
+    // Goes through all attractions with a review and checks if that
+    // visitor is allowed to visit using polymorphism
     public ArrayList<IReviewed> getAllAllowedFor(Visitor visitor){
         ArrayList<IReviewed> isAllowedAttractions = new ArrayList<>();
         for (IReviewed reviewed : this.reviewedAttractions){
